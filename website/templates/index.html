@@ -1,4 +1,27 @@
 {%extends 'shared/layout.html'%}
     {%block conteudo%}
     <h1>Ideas doidas</h1>
-    {%endblock%}
+    <form action="/" method="POST">
+        {% csrf_token %}
+        <label>nome</label>
+        <input type="text" name="nome">
+
+        <label>sobrenome</label>
+        <input type="text" name="sobrenome">
+
+        <label>email</label>
+        <input type="text" name="email">
+
+        <label>Biografia</label>
+        <textarea name="biografia" cols="30" rows="10"></textarea>
+
+        <select name="genero">
+            <option value="F">Feminino</option>
+            <option value="M">Masculino</option>
+            <option value="O">Outros</option>
+
+        </select>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+    {% endblock %}
