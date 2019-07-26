@@ -1,0 +1,22 @@
+{%extends 'shared/layout.html'%}
+    {%block conteudo%}
+    {%if pessoa is None%}
+    <h1>Se Cadastre-se</h1>
+    <a href="/">Clique aqui</a>
+    {%else%}
+    <h1>Ideas doidas</h1>
+    <h2>Cadastre-se sua idea</h2>
+    <form action="/ideias" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="email" value="{{pessoa.email}}">
+        <input type="text" name="titulo" placeholder="Nome da Ideia">
+        <select name="categorias">
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
+        <input type="submit" value="Cadastrar ideia">
+    </form>
+    {%endif%}
+    {% endblock %}

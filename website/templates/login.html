@@ -1,0 +1,9 @@
+{%extends 'shared/layout.html'%}
+    {%block conteudo%}
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        {% csrf_token %}
+        <input type="email" name="email" placeholder="E-Mail">
+        <input type="submit" value="Logar">        
+    </form>
+    {%endblock%}
