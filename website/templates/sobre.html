@@ -17,11 +17,13 @@
         <input type="submit" value="Buscar">
 </form>
         {% for ideia in ideias %}
-                <p>{{ideia.pessoa.nome}} {{ideia.pessoa.sobrenome}}</p>
-                <p>{{ideia.titulo}}</p>
-                <p>{{ideia.categorias}}</p>
-                <p>{{ideia.descricao}}</p>
-                <hr>
+                {%if ideia.pessoa.ativo == True%}
+                        <p>{{ideia.pessoa.nome}} {{ideia.pessoa.sobrenome}}</p>
+                        <p>{{ideia.titulo}}</p>
+                        <p>{{ideia.categorias}}</p>
+                        <p>{{ideia.descricao}}</p>
+                        <hr>
+                {%endif%}
         {% endfor %}
 {% endblock %}
 <!-- {% include 'shared/lista.html'%} -->
