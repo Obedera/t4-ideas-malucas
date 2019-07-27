@@ -6,9 +6,9 @@
 <h1>Listagem das Ideas</h1>
 <p>
         {% for ideia in ideias %}
-                <p>{{ideia.pessoa.nome}}</p>
+                <p>{{ideia.pessoa.nome}} {{ideia.pessoa.sobrenome}}</p>
                 <p>{{ideia.titulo}}</p>
-                <p>{{ideia.categoria}}</p>
+                <p>{{ideia.categorias}}</p>
                 <p>{{ideia.descricao}}</p>
                 <hr>
         {% endfor %}

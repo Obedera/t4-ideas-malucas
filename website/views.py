@@ -7,16 +7,12 @@ from website.models import Ideia
 def index(request):
     # essa pagina é de cadastro
     args = {}
-    print('a')
     if request.method == 'POST':
-        print('b')
         pessoa = Pessoa()
         pessoa.nome = request.POST.get('nome')
         pessoa.sobrenome = request.POST.get('sobrenome')
         pessoa.email = request.POST.get('email')
-        print(request.POST.get('genero'))
         pessoa.genero = request.POST.get('genero')
-        print(pessoa.genero)
         pessoa.biografia = request.POST.get('biografia')
         pessoa.save()
         return render(request, 'login.html',{})
@@ -54,7 +50,7 @@ def cadastrar_ideia(request):
             ideia.pessoa = pessoa
             ideia.titulo = request.POST.get('titulo')
             ideia.descricao = request.POST.get('descricao')
-            ideia.categoria = request.POST.get('categoria')
+            ideia.categorias = request.POST.get('categorias')
             ideia.categoria_outros = request.POST.get('categoria_outros')
             ideia.save() 
             return redirect('/sobre') 

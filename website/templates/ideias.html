@@ -13,14 +13,14 @@
         <label for="descricao">Descreva sua ideia</label>
         <textarea name="descricao" cols="30" rows="10">
         </textarea>
-        <select name="categorias">
+        <select name="categorias" onchange="checarOpcao()">
             <option value="TERRA_PLANA">Terra Plana</option>
             <option value="CONTRA_GROGER">Contra o coach Groger</option>
             <option value="CONTRA_JOAO">Contra João</option>
             <option value="PUBLICAS">Públicas</option>
             <option value="OUTROS">Outros</option>
         </select>
-        <input type="text" name="categoria_outros" placeholder="Caso outros, qual?">
+        <input type="hidden" name="categoria_outros" placeholder="Caso outros, qual?">
         <input type="submit" value="Cadastrar Ideia">
     </form>
     {%endif%}

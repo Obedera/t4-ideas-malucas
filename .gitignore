@@ -8,7 +8,6 @@ ENV/
 .Python
 *.log
 local_settings.py
-db.sqlite3
 /site
 .mypy_cache/
 .idea
