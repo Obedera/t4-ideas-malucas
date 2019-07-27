@@ -1,6 +1,66 @@
 body{
-    background-color: gray;
+    background-color: black;
+    margin: 0;
+    display: grid;
+    grid-template-areas: 'nav'
+                         'section';
+}
+h1{
+    color: darkblue;
+    font-family: 'Times New Roman', Times, serif;
+    size: 16pt;
+    text-align: center; 
+}
+h2{
     color: blue;
+    font-family: 'Times New Roman', Times, serif;
+    size: 12pt;
+    text-align: center;
+}
+h4{
+    color: yellow;
+    text-decoration: bold;
+    text-align: center;
+}
+aside{
+    border-bottom: 3px solid black;
+    width: 100%;
+}
+aside p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+aside span{
+    color: yellow;
+}
+nav{
+    grid-area: nav;
+    border-bottom: 3px solid blue; 
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+nav input,select,form{
+    justify-self: center;
+    align-self: center;
+    width: 30vw;
+}
+
+section{
+    grid-area: section;
+    background-color: #3936c4;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80vw;
+}
+label{
+    text-align: center;
+    font-style: italic;
+    margin: 5px;
 }
 form{
     justify-content: center;

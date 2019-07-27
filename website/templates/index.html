@@ -1,31 +1,35 @@
 {%extends 'shared/layout.html'%}
     {%block conteudo%}
-    <h1>Ideas doidas</h1>
-    {{msg}}
-    <h2>Cadastre-se</h2>
-    <form action="/" method="POST">
-        {% csrf_token %}
-        <label>nome</label>
-        <input type="text" name="nome" required>
-
-        <label>sobrenome</label required>
-        <input type="text" name="sobrenome">
-
-        <label>email</label required>
-        <input type="text" name="email">
-
-        <label>senha</label required>
-        <input type="password" name="senha">
-
-        <label>Biografia</label>
-        <textarea name="biografia" cols="30" rows="10"></textarea>
-
-        <select name="genero" required>
-            <option value="F">Feminino</option>
-            <option value="M">Masculino</option>
-            <option value="O">Outros</option>
-        </select>
-
-        <input type="submit" value="Cadastrar">
-    </form>
+    <nav>
+        <h1>Ideias doidas</h1>
+        {{msg}}
+        <h2>Cadastre-se</h2>
+    </nav>
+    <section>
+        <form action="/" method="POST">
+            {% csrf_token %}
+            <label>Nome</label>
+            <input type="text" name="nome" required>
+    
+            <label>Sobrenome</label required>
+            <input type="text" name="sobrenome">
+    
+            <label>Email</label required>
+            <input type="text" name="email">
+    
+            <label>Senha</label required>
+            <input type="password" name="senha">
+    
+            <label>Biografia</label>
+            <textarea name="biografia" cols="30" rows="10"></textarea>
+    
+            <select name="genero" required>
+                <option value="F">Feminino</option>
+                <option value="M">Masculino</option>
+                <option value="O">Outros</option>
+            </select>
+    
+            <input type="submit" value="Cadastrar">
+        </form>
+    </section>
     {% endblock %}

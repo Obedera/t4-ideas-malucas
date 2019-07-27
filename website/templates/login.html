@@ -1,11 +1,15 @@
 {%extends 'shared/layout.html'%}
     {%block conteudo%}
-    <h1>Login</h1>
-    {{msg}}
-    <form action="/login" method="POST">
-        {% csrf_token %}
-        <input type="email" name="email" placeholder="E-Mail">
-        <input type="password" name="senha" placeholder="Senha">
-        <input type="submit" value="Logar">        
-    </form>
+    <nav>
+        <h1>Login</h1>
+        {{msg}}
+    </nav>
+    <section>
+        <form action="/login" method="POST">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="E-Mail">
+            <input type="password" name="senha" placeholder="Senha">
+            <input type="submit" value="Logar">        
+        </form>
+    </section>
     {%endblock%}

@@ -1,27 +1,33 @@
 {%extends 'shared/layout.html'%}
     {%block conteudo%}
     {%if pessoa is None%}
-    <h1>Se Cadastre-se</h1>
-    <a href="/">Clique aqui</a>
+    <nav>
+        <h1>Se Cadastre-se</h1>
+        <a href="/"><h2>Clique aqui</h2></a>
+    </nav>
     {%else%}
-    <h1>Ideas doidas</h1>
-    <h2>Cadastre a sua ideia {{pessoa.nome}}</h2>
-    <form action="/ideias" method="post">
-        {% csrf_token %}
-        <input type="hidden" name="email" value="{{pessoa.email}}">
-        <input type="text" name="titulo" placeholder="Nome da ideia">
-        <label for="descricao">Descreva sua ideia</label>
-        <textarea name="descricao" cols="30" rows="10">
-        </textarea>
-        <select name="categorias" onchange="checarOpcao()">
-            <option value="TERRA_PLANA">Terra Plana</option>
-            <option value="CONTRA_GROGER">Contra o coach Groger</option>
-            <option value="CONTRA_JOAO">Contra João</option>
-            <option value="PUBLICAS">Públicas</option>
-            <option value="OUTROS">Outros</option>
-        </select>
-        <input type="hidden" name="categoria_outros" placeholder="Caso outros, qual?">
-        <input type="submit" value="Cadastrar Ideia">
-    </form>
+    <nav>
+        <h1>Ideas doidas</h1>
+        <h2>Cadastre a sua ideia {{pessoa.nome}}</h2>
+    </nav>
+    <section>
+        <form action="/ideias" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="email" value="{{pessoa.email}}">
+            <input type="text" name="titulo" placeholder="Nome da ideia">
+            <label for="descricao">Descreva sua ideia</label>
+            <textarea name="descricao" cols="30" rows="10">
+            </textarea>
+            <select name="categorias" onchange="checarOpcao()">
+                <option value="TERRA_PLANA">Terra Plana</option>
+                <option value="CONTRA_GROGER">Contra o coach Groger</option>
+                <option value="CONTRA_JOAO">Contra João</option>
+                <option value="PUBLICAS">Públicas</option>
+                <option value="OUTROS">Outros</option>
+            </select>
+            <input type="hidden" name="categoria_outros" placeholder="Caso outros, qual?">
+            <input type="submit" value="Cadastrar Ideia">
+        </form>
+    </section>
     {%endif%}
     {% endblock %}

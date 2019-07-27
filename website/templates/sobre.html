@@ -2,28 +2,33 @@
 
 {% block conteudo %}
 
-
-<h1>Listagem das Ideias</h1>
-<form action="/sobre" method="post">
-        {% csrf_token %}
-        <select name="categorias">
-                <option value="TODAS">Todas as categorias</option>
-                <option value="TERRA_PLANA">Terra Plana</option>
-                <option value="CONTRA_GROGER">Contra o coach Groger</option>
-                <option value="CONTRA_JOAO">Contra João</option>
-                <option value="PUBLICAS">Públicas</option>
-                <option value="OUTROS">Outros</option>
-        </select>
-        <input type="submit" value="Buscar">
-</form>
+<nav>
+        <h1>Listagem das Ideias</h1>
+        <form action="/sobre" method="post">
+                {% csrf_token %}
+                <select name="categorias">
+                        <option value="TODAS">Todas as categorias</option>
+                        <option value="TERRA_PLANA">Terra Plana</option>
+                        <option value="CONTRA_GROGER">Contra o coach Groger</option>
+                        <option value="CONTRA_JOAO">Contra João</option>
+                        <option value="PUBLICAS">Públicas</option>
+                        <option value="OUTROS">Outros</option>
+                </select>
+                <input type="submit" value="Buscar">
+        </form>
+</nav>
+<section>
         {% for ideia in ideias %}
                 {%if ideia.pessoa.ativo == True%}
-                        <p>{{ideia.pessoa.nome}} {{ideia.pessoa.sobrenome}}</p>
-                        <p>{{ideia.titulo}}</p>
-                        <p>{{ideia.categorias}}</p>
-                        <p>{{ideia.descricao}}</p>
-                        <hr>
+                        <aside>
+                                <h4>{{ideia.pessoa.nome}} {{ideia.pessoa.sobrenome}}</h4>
+                                <p>Titulo da ideia: <span>{{ideia.titulo}}</span></p>
+                                <p>Categoria da ideia: <span>{{ideia.categorias}}</span></p>
+                                <p>Descrição da ideia:</p>
+                                <span>{{ideia.descricao}}</span>
+                        </aside>
                 {%endif%}
         {% endfor %}
+</section>
 {% endblock %}
 <!-- {% include 'shared/lista.html'%} -->
