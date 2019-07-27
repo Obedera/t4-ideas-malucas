@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from website.models import Pessoa
 from website.models import Ideia
 
@@ -7,22 +7,26 @@ from website.models import Ideia
 def index(request):
     # essa pagina é de cadastro
     args = {}
+    print('a')
     if request.method == 'POST':
+        print('b')
         pessoa = Pessoa()
         pessoa.nome = request.POST.get('nome')
         pessoa.sobrenome = request.POST.get('sobrenome')
         pessoa.email = request.POST.get('email')
+        print(request.POST.get('genero'))
         pessoa.genero = request.POST.get('genero')
+        print(pessoa.genero)
         pessoa.biografia = request.POST.get('biografia')
         pessoa.save()
-        return(request, 'login',{})
+        return render(request, 'login.html',{})
 
     return render(request, 'index.html', args)
 
 def sobre(request):
-    pessoa = Pessoa.objects.filter(ativo=True).all()
+    ideias = Ideia.objects.all()
     args = {
-        'pessoa':pessoa
+        'ideias':ideias
     }
     return render(request, 'sobre.html', args)
 
@@ -38,15 +42,22 @@ def login(request):
             contexto = {'pessoa': pessoa_bd}
             return render(request,'ideias.html',contexto)
 
-        
-
     return render(request, 'login.html',{})
 
 
 def cadastrar_ideia(request):
     if request.method == 'POST':
         email_pessoa = request.POST.get('email')
-        pessoa = Pessoa
+        pessoa = Pessoa.objects.filter(email=email_pessoa).first()
+        if pessoa is not None:
+            ideia = Ideia()
+            ideia.pessoa = pessoa
+            ideia.titulo = request.POST.get('titulo')
+            ideia.descricao = request.POST.get('descricao')
+            ideia.categoria = request.POST.get('categoria')
+            ideia.categoria_outros = request.POST.get('categoria_outros')
+            ideia.save() 
+            return redirect('/sobre') 
     return render(request,'ideias.html',{})
 
 
