@@ -6,13 +6,16 @@
     <form action="/" method="POST">
         {% csrf_token %}
         <label>nome</label>
-        <input type="text" name="nome">
+        <input type="text" name="nome" required>
 
-        <label>sobrenome</label>
+        <label>sobrenome</label required>
         <input type="text" name="sobrenome">
 
-        <label>email</label>
+        <label>email</label required>
         <input type="text" name="email">
+
+        <label>senha</label required>
+        <input type="password" name="senha">
 
         <label>Biografia</label>
         <textarea name="biografia" cols="30" rows="10"></textarea>

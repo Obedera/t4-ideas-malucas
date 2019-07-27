@@ -31,6 +31,11 @@ class Pessoa(models.Model):
         verbose_name='E-mail'
     )
 
+    senha = models.CharField(
+        max_length=255,
+        verbose_name='Senha'
+    )
+
     biografia = models.TextField(
         null=True,
         blank=True

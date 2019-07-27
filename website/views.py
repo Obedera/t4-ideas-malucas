@@ -12,6 +12,7 @@ def index(request):
         pessoa.nome = request.POST.get('nome')
         pessoa.sobrenome = request.POST.get('sobrenome')
         pessoa.email = request.POST.get('email')
+        pessoa.senha = request.POST.get('senha')
         pessoa.genero = request.POST.get('genero')
         pessoa.biografia = request.POST.get('biografia')
         pessoa.save()
@@ -36,18 +37,21 @@ def sobre(request):
     return render(request, 'sobre.html', args)
 
 def login(request):
+    args = {}
     if request.method == 'POST':
         email_form = request.POST.get('email')
+        senha_form = request.POST.get('senha')
         pessoa_bd = Pessoa.objects.filter(email=email_form).first()
-
         if pessoa_bd is None:
-            contexto = {'msg':'Cadastre-se aqui primeiro amg :)'}
-            return render(request,'index.html',contexto)
+            args = {'msg':'Cadastre-se aqui primeiro amg :)'}
+            return render(request,'index.html',args)
+        elif pessoa_bd.senha == senha_form:
+            args = {'pessoa': pessoa_bd}
+            return render(request,'ideias.html',args)
         else:
-            contexto = {'pessoa': pessoa_bd}
-            return render(request,'ideias.html',contexto)
+            args = {'msg':'Usuario ou senha invalidos'}
 
-    return render(request, 'login.html',{})
+    return render(request, 'login.html',args)
 
 
 def cadastrar_ideia(request):
