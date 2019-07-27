@@ -15,15 +15,24 @@ def index(request):
         pessoa.genero = request.POST.get('genero')
         pessoa.biografia = request.POST.get('biografia')
         pessoa.save()
-        return render(request, 'login.html',{})
+        return render(request, 'login.html',{'msg':'Faça seu login agora'})
 
     return render(request, 'index.html', args)
 
 def sobre(request):
-    ideias = Ideia.objects.all()
-    args = {
-        'ideias':ideias
-    }
+    args = {}
+    if request.method == 'POST':
+        categoria = request.POST.get('categorias')
+        ideias = Ideia.objects.filter(categorias=categoria).all()
+        args = {
+            'ideias':ideias
+        }
+        if categoria == 'TODAS':
+            ideias = Ideia.objects.all()
+            args = {
+            'ideias':ideias
+            }
+
     return render(request, 'sobre.html', args)
 
 def login(request):
@@ -32,7 +41,7 @@ def login(request):
         pessoa_bd = Pessoa.objects.filter(email=email_form).first()
 
         if pessoa_bd is None:
-            contexto = {'msg':'Cadastre-se aqui'}
+            contexto = {'msg':'Cadastre-se aqui primeiro amg :)'}
             return render(request,'index.html',contexto)
         else:
             contexto = {'pessoa': pessoa_bd}

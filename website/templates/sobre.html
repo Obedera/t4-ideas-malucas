@@ -3,8 +3,19 @@
 {% block conteudo %}
 
 
-<h1>Listagem das Ideas</h1>
-<p>
+<h1>Listagem das Ideias</h1>
+<form action="/sobre" method="post">
+        {% csrf_token %}
+        <select name="categorias">
+                <option value="TODAS">Todas as categorias</option>
+                <option value="TERRA_PLANA">Terra Plana</option>
+                <option value="CONTRA_GROGER">Contra o coach Groger</option>
+                <option value="CONTRA_JOAO">Contra João</option>
+                <option value="PUBLICAS">Públicas</option>
+                <option value="OUTROS">Outros</option>
+        </select>
+        <input type="submit" value="Buscar">
+</form>
         {% for ideia in ideias %}
                 <p>{{ideia.pessoa.nome}} {{ideia.pessoa.sobrenome}}</p>
                 <p>{{ideia.titulo}}</p>
@@ -12,7 +23,5 @@
                 <p>{{ideia.descricao}}</p>
                 <hr>
         {% endfor %}
-</p>
-
 {% endblock %}
 <!-- {% include 'shared/lista.html'%} -->
