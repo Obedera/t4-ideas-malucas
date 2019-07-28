@@ -6,6 +6,7 @@ from website.models import Ideia
 
 def index(request):
     # essa pagina é de cadastro
+    args = {}
     if request.method == 'POST':
         email_user = request.POST.get('email')
         pessoa_bd = Pessoa.objects.filter(email=email_user)

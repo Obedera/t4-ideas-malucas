@@ -1,5 +1,8 @@
 body{
-    background-color: black;
+    background: cover;
+    background-image: url('/static/img/fundo.png');
+    background-repeat: no-repeat;
+    background-size: 100vw 100%;
     margin: 0;
     display: grid;
     grid-template-areas: 'nav'
@@ -49,7 +52,7 @@ nav input,select,form{
 
 section{
     grid-area: section;
-    background-color: #3936c4;
+    background-color: rgba(0, 0, 200, 0.3);
     display: flex;
     justify-self: center;
     justify-content: center;
@@ -59,6 +62,7 @@ section{
 }
 label{
     text-align: center;
+    color: yellow;
     font-style: italic;
     margin: 5px;
 }
