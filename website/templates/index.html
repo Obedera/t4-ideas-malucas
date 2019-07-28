@@ -2,8 +2,7 @@
     {%block conteudo%}
     <nav>
         <h1>Ideias doidas</h1>
-        {{msg}}
-        <h2>Cadastre-se</h2>
+        <h2>{{msg}} Cadastre-se</h2>
     </nav>
     <section>
         <form action="/" method="POST">
@@ -11,14 +10,14 @@
             <label>Nome</label>
             <input type="text" name="nome" required>
     
-            <label>Sobrenome</label required>
-            <input type="text" name="sobrenome">
+            <label>Sobrenome</label>
+            <input type="text" required name="sobrenome">
     
-            <label>Email</label required>
-            <input type="text" name="email">
+            <label>Email</label>
+            <input type="text" required name="email">
     
-            <label>Senha</label required>
-            <input type="password" name="senha">
+            <label>Senha</label>
+            <input type="password" required name="senha">
     
             <label>Biografia</label>
             <textarea name="biografia" cols="30" rows="10"></textarea>

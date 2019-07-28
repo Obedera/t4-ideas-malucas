@@ -6,17 +6,21 @@ from website.models import Ideia
 
 def index(request):
     # essa pagina é de cadastro
-    args = {}
     if request.method == 'POST':
-        pessoa = Pessoa()
-        pessoa.nome = request.POST.get('nome')
-        pessoa.sobrenome = request.POST.get('sobrenome')
-        pessoa.email = request.POST.get('email')
-        pessoa.senha = request.POST.get('senha')
-        pessoa.genero = request.POST.get('genero')
-        pessoa.biografia = request.POST.get('biografia')
-        pessoa.save()
-        return render(request, 'login.html',{'msg':'Faça seu login agora'})
+        email_user = request.POST.get('email')
+        pessoa_bd = Pessoa.objects.filter(email=email_user)
+        if pessoa_bd is not None:
+            args = {'msg':'Email já cadastrado'}
+        else:    
+            pessoa = Pessoa()
+            pessoa.nome = request.POST.get('nome')
+            pessoa.sobrenome = request.POST.get('sobrenome')
+            pessoa.email = request.POST.get('email')
+            pessoa.senha = request.POST.get('senha')
+            pessoa.genero = request.POST.get('genero')
+            pessoa.biografia = request.POST.get('biografia')
+            pessoa.save()
+            return render(request, 'login.html',{'msg':'Faça seu login agora'})
 
     return render(request, 'index.html', args)
 

@@ -28,7 +28,8 @@ class Pessoa(models.Model):
 
     email = models.EmailField(
         max_length=200,
-        verbose_name='E-mail'
+        verbose_name='E-mail',
+        unique=True
     )
 
     senha = models.CharField(
@@ -63,7 +64,8 @@ class Ideia(models.Model):
     titulo = models.CharField(
         max_length=255, 
         verbose_name='Nome de ideia',
-        unique=True)
+        unique=True
+    )
 
     descricao = models.TextField(
         verbose_name='Descreva sua ideia'

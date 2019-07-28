@@ -14,9 +14,9 @@
         <form action="/ideias" method="post">
             {% csrf_token %}
             <input type="hidden" name="email" value="{{pessoa.email}}">
-            <input type="text" name="titulo" placeholder="Nome da ideia">
+            <input type="text" name="titulo" placeholder="Nome da ideia" required>
             <label for="descricao">Descreva sua ideia</label>
-            <textarea name="descricao" cols="30" rows="10">
+            <textarea name="descricao" cols="30" rows="10" required>
             </textarea>
             <select name="categorias" onchange="checarOpcao()">
                 <option value="TERRA_PLANA">Terra Plana</option>
