@@ -35,12 +35,23 @@ def sobre(request):
             'ideias':ideias
         }
         if categoria == 'TODAS':
-            ideias = Ideia.objects.all()
+            ideias = Ideia.objects.filter(ativo=True)
             args = {
             'ideias':ideias
             }
 
     return render(request, 'sobre.html', args)
+
+def remover_ideia(request, id):
+    print(id)
+    args = {}
+    ideia = Ideia.objects.filter(id=id).first()
+    print(ideia.titulo)
+    if ideia is not None:    
+        ideia.ativo = False
+        ideia.save()
+    return redirect('/sobre')
+        
 
 def login(request):
     args = {}
