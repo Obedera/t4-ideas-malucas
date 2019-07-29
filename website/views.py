@@ -10,7 +10,7 @@ def index(request):
     if request.method == 'POST':
         email_user = request.POST.get('email')
         pessoa_bd = Pessoa.objects.filter(email=email_user)
-        if pessoa_bd is not None:
+        if pessoa_bd is None:
             args = {'msg':'Email já cadastrado'}
         else:    
             pessoa = Pessoa()
