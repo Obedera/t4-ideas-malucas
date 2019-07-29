@@ -12,6 +12,7 @@ h1{
     color: darkblue;
     font-family: 'Times New Roman', Times, serif;
     size: 16pt;
+    margin:0;
     text-align: center; 
 }
 h2{
@@ -47,8 +48,15 @@ nav{
 nav input,select,form{
     justify-self: center;
     align-self: center;
-    width: 30vw;
+    width: 60vw;
 }
+
+nav form{
+    height:20vh;
+}
+
+section form{
+    height:80vh;                                }
 
 section{
     grid-area: section;
