@@ -1,7 +1,10 @@
 {%extends 'shared/layout.html'%}
     {%block conteudo%}
     {%if pessoa is None%}
-    <nav>
+    <nav style="background: cover;
+    background-image: url('/static/img/cadastrar.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;height: 100vh; width: 100vw;">
         <h1>Se Cadastre-se</h1>
         <a href="/"><h2>Clique aqui</h2></a>
     </nav>

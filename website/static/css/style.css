@@ -1,45 +1,47 @@
 body{
     background: cover;
-    background-image: url('/static/img/fundo.png');
+    background-image: url('/static/img/fundo.jpg');
     background-repeat: no-repeat;
-    background-size: 100vw 100%;
+    background-size: 100vw 100vh;
     margin: 0;
     display: grid;
     grid-template-areas: 'nav'
                          'section';
 }
 h1{
-    color: darkblue;
+    color: black;
     font-family: 'Times New Roman', Times, serif;
     size: 16pt;
     margin:0;
     text-align: center; 
 }
 h2{
-    color: blue;
+    color: black;
     font-family: 'Times New Roman', Times, serif;
     size: 12pt;
     text-align: center;
 }
 h4{
-    color: yellow;
+    color: white;
     text-decoration: bold;
     text-align: center;
 }
 aside{
+    background-color: rgba(0, 0, 0, 0.5);
     border-bottom: 3px solid black;
     width: 100%;
 }
 aside p{
     margin-top: 0;
     margin-bottom: 0;
+    color: white;
 }
 aside span{
-    color: yellow;
+    color: white;
 }
 nav{
     grid-area: nav;
-    border-bottom: 3px solid blue; 
+    height: 20vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -56,11 +58,19 @@ nav form{
 }
 
 section form{
-    height:80vh;                                }
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20%;
+}
+
+section select,input{
+    size: 30vw;
+    width: 30vw;
+    margin-top: 5px;
+    justify-self: center;
+}
 
 section{
     grid-area: section;
-    background-color: rgba(0, 0, 200, 0.3);
     display: flex;
     justify-self: center;
     justify-content: center;
@@ -70,12 +80,13 @@ section{
 }
 label{
     text-align: center;
-    color: yellow;
+    color: black;
     font-style: italic;
     margin: 5px;
 }
 form{
     justify-content: center;
+    align-items: center;
     display: flex;
     flex-direction: column;
 }
